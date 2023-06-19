@@ -1,0 +1,12 @@
+0 Portrait
+1 Nature
+2 Mountain
+3 Trees
+4 Cats
+5 Dogs
+6 Group Photo
+7 Art
+8 Anime
+9 Bikes
+10 Cars
+11 Animals
