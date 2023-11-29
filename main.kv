@@ -2,7 +2,8 @@
 
 DribbleUI:
 <DribbleUI>:
-    MDBoxLayout:
+    name: "main"
+    MDBoxLayout:    
         orientation:'vertical'
         MDScreen:
             canvas.after:
@@ -13,7 +14,7 @@ DribbleUI:
                     pos:self.pos[0]+(Window.width/2)-(dp(180)*(1-(root.animation_constant/100)))/2,self.pos[1]
             RelativeLayout:
                 Image:
-                    source:'assets/icon.png'
+                    source:'assets/hashtag.png'
                     size_hint:None,None
                     size:'200dp','200dp'
                     pos_hint:{'center_x':.5,'center_y':.5+((root.animation_constant*2)/(Window.height))}
@@ -22,22 +23,28 @@ DribbleUI:
             spacing:'12dp'
             padding:'12dp'
             MDLabel:
-                text:'What are you\nworking on ?'
+                text:'InstaHub'
                 halign:'center'
                 font_style:'H5'
                 bold:True
             MDLabel:
-                text:'Dribble where designer\nget inspired and hired'
+                text:'Elevate Your Social Media Game!'
                 halign:'center'
                 font_style:'Subtitle1'
             MDFillRoundFlatButton:
-                text:'Sign Up'
+                text:'Predict Tags'
                 pos_hint:{'center_x':.5,'center_y':.5}
-                size_hint_x:1
+                size_hint_x:0.9
                 md_bg_color:1,20/255,147/255,1
-            MDTextButton:
-                text:'already have account ?'
+                on_release:
+                    root.manager.current = "home"
+                    root.manager.transition.direction = "left"
+            MDFillRoundFlatButton:
+                text:'Predict Engagement'
                 pos_hint:{'center_x':.5,'center_y':.5}
-                theme_text_color:'Custom'
-                text_color:68/255,166/255,198/255,1
+                size_hint_x:0.9
+                md_bg_color:1,20/255,147/255,1
+                on_release:
+                    root.manager.current = "reach"
+                    root.manager.transition.direction = "left"
             MDBoxLayout

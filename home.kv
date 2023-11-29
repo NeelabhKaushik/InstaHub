@@ -1,0 +1,99 @@
+<MagicButton@MagicBehavior+Button>
+MDScreen:
+    name: "home"
+    MDFloatLayout:
+        MDIconButton:
+            icon: "arrow-left"
+            user_font_size: "35sp"
+            pos_hint: {'center_y': .95}
+            on_release: 
+                root.manager.current = "main"
+                root.manager.transition.direction = "right"
+        ElementCard:
+            id: riya
+            image:""
+            pos_hint: {'center_x': 0.5,'center_y': 0.7}
+            size_hint: 0.6, 0.4
+            color: 1,20/255,147/255,1 
+        MagicButton:
+            text: "Upload Your Photo here"
+            size_hint: 0.6, 0.08
+            pos_hint: {'center_x': 0.5,'center_y': 0.65}
+            background_color: 1,1,1,0
+            font_size: "18sp"
+            magic_speed: 0.3
+            image:
+            on_release: 
+                self.grow()
+                app.file_chooser()
+                app.change_image()
+            canvas.before:
+                Color:
+                    rgb: 1,20/255,147/255,1 
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [50]
+        MagicButton:
+            text: 'Generate tags'
+            size_hint: 0.6, 0.08
+            pos_hint: {'center_x': 0.5,'center_y': 0.35}
+            height: '48dp'
+            on_release: app.find_class()
+            background_color: 1,1,1,0
+            font_size: "18sp"
+            magic_speed: 0.3
+            canvas.before:
+                Color:
+                    rgb: 1,20/255,147/255,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [30]
+        Label:
+            id: curency
+            text: ""
+            size_hint_y: None
+            size_hint: .8,None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            pos_hint: {'center_x': 0.5,'center_y': 0.15}
+            background_color: 1,1,1,0
+            canvas.before:
+                Color:
+                    rgb: 1,20/255,147/255,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+        MagicButton:
+            id: happy
+            text: ""
+            pos_hint: {'center_x': 0.9,'center_y': 0.05}
+            halign: "center"
+            size_hint: 0.3, 0.04
+            height: self.texture_size[1]
+            on_press: app.coppy()
+            background_color: 1,1,1,0
+            canvas.before:
+                Color:
+                    rgb: 1,20/255,147/255,1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [30]
+<ElementCard@MDCard>:
+    padding:dp(15)
+    spacing:dp(15)
+    radius:dp(25)
+    image:""
+    text:""
+    font_style: "H3"
+    orientation:'vertical'
+    Image:
+        source:root.image
+    MDBoxLayout:
+        orientation:'vertical'
+        MDLabel:
+            halign:"center"
+            text:root.text
+            font_style:"H6"
